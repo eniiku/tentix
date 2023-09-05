@@ -10,7 +10,85 @@
     <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
   </head>
 
-  <body>
-    <h1>Hello World</h1>
+  <body class="max-w-[1440px] min-h-screen grid grid-cols-[240px_1fr]">
+    <!-- SIDEBAR  -->
+
+    <nav
+      class="border-r-2 border-r-pry-gray-border pt-[5.51rem] pb-[2.75rem] px-[1.6rem] flex flex-col justify-between"
+    >
+      <!-- Main Navigation -->
+
+      <div>
+        <!-- LOGO -->
+
+        <div
+          class="flex items-center gap-[0.6rem] font-inter text-[1.7103rem] font-bold text-pry-blue-dark mb-[2.4rem]"
+        >
+          <img src="/assets/sidebar/logo.svg" alt="" />
+          <span>Tentix</span>
+        </div>
+
+        <!-- Navigation Links -->
+
+        <div>
+          <!-- Overview NavLink -->
+          <button class="nav__link">
+            <span><img src="/assets/sidebar/user.svg" alt="" /></span>
+
+            <span>Overview</span>
+          </button>
+
+          <!-- Content Calender NavLink -->
+          <button class="nav__link">
+            <span><img src="/assets/sidebar/calender.svg" alt="" /></span>
+
+            <span>Content Calender</span>
+          </button>
+
+          <!-- Content Library NavLink -->
+          <button class="nav__link">
+            <span><img src="/assets/sidebar/folder.svg" alt="" /></span>
+
+            <span>Content Library</span>
+          </button>
+
+          <!-- Help NavLink -->
+          <button class="nav__link">
+            <span><img src="/assets/sidebar/help.svg" alt="" /></span>
+
+            <span>Help & Support</span>
+          </button>
+
+          <!-- Settings NavLink -->
+          <button class="nav__link">
+            <span><img src="/assets/sidebar/settings.svg" alt="" /></span>
+
+            <span>Settings</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA -->
+
+      <div
+        class="bg-sec-main rounded-[0.625rem] font-jakarta font-semibold text-white text-center py-7 px-4 relative circle-watermark"
+      >
+        <div class="max-w-[8.125rem] mx-auto">
+          <h4 class="text-lg tracking-[-0.0225rem]">Upgrade your plan</h4>
+
+          <p class="tracking-[-0.015rem] text-[0.75rem] font-medium mt-3 mb-6">
+            to access all our premium features
+          </p>
+        </div>
+
+        <button
+          class="bg-white text-sec-main rounded-[0.625rem] px-6 py-3 tracking-[-0.015rem] text-[0.75rem] w-full"
+        >
+          Go To PRO
+        </button>
+      </div>
+    </nav>
+
+    <main></main>
   </body>
 </html>

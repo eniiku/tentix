@@ -1,3 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav__link {
+    @apply flex items-center gap-3 font-inter text-sm text-gray-400 font-medium py-[0.62rem] px-4 mb-[1.06rem];
+  }
+}
+
+/* ----------------------------------------------
+      CUSTOM WATERMARK FOR CTA IN NAV SECTION
+   ----------------------------------------------  */
+
+.circle-watermark::after,
+.circle-watermark::before {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.circle-watermark::before {
+  content: '';
+  position: absolute;
+  top: -68px;
+  left: -108px;
+}
+
+.circle-watermark::after {
+  content: '';
+  position: absolute;
+  bottom: -105px;
+  right: -100px;
+}
