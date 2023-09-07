@@ -7,10 +7,22 @@
 
     <title>Tentix</title>
 
-    <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
   </head>
 
-  <body class="max-w-[1440px] mx-auto min-h-screen grid grid-cols-[240px_1fr]">
+  <body
+    x-data="{
+      recents: [
+                  { image: '/assets/overview/book.svg', text: 'October 2023', color: '#369FFF33' },
+                  { image: '/assets/overview/edit.svg', text: 'December 2022', color: '#FF993A33' },
+                  { image: '/assets/overview/headphone.svg', text: 'December 2021', color: '#8AC53E33' },
+                  { image: '/assets/overview/volume.svg', text: 'Feburary 2021', color: '#FFD14333' },
+                  { image: '/assets/overview/volume.svg', text: 'November 2021', color: '#FFD14333' },
+                  { image: '/assets/overview/headphone.svg', text: 'January 2021', color: '#8AC53E33' },
+                  ]
+    }"
+    class="max-w-[1440px] mx-auto min-h-screen grid grid-cols-[240px_1fr]"
+  >
     <!-- SIDEBAR  -->
 
     <nav
@@ -32,14 +44,14 @@
 
         <div>
           <!-- Overview NavLink -->
-          <button class="nav__link">
+          <button @click.prevent="page = 'overview'" class="nav__link">
             <span><img src="/assets/sidebar/user.svg" alt="" /></span>
 
             <span>Overview</span>
           </button>
 
           <!-- Content Calender NavLink -->
-          <button class="nav__link">
+          <button @click.prevent="page = 'calender'" class="nav__link">
             <span><img src="/assets/sidebar/calender.svg" alt="" /></span>
 
             <span>Content Calender</span>
@@ -131,7 +143,140 @@
 
         <div>
           <!-- Page that displays when btn.Overview is clicked/active -->
-          <section id="#overview"></section>
+          <section class="font-inter">
+            <!-- TOP DASHBOARD -->
+
+            <div
+              class="flex items-end justify-between gap-[3rem] py-[2rem] px-[3rem] border-b-2 border-b-pry-border-200"
+            >
+              <div
+                class="h-[21.75rem] w-[20.07694rem] bg-pry-blue-light rounded-[1.33844rem] p-[1.56rem] text-white text-xl font-bold shadow-[0_10.70769px_32.12308px_0_rgba(54,159,255,0.40)] transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_10.70769px_60px_0_rgba(54,159,255,0.40)] hover:scale-105"
+              >
+                <p class="max-w-[9ch]">September Calender</p>
+              </div>
+
+              <div>
+                <h3 class="text-pry-black text-xl mb-4 font-bold">
+                  Create a Calender
+                </h3>
+
+                <div
+                  class="h-[8.075rem] w-[16.15rem] bg-[#FF993A] rounded-[1.07669rem] text-white font-bold shadow-[0px_8.61373px_25.84118px_0_rgba(255,153,58,0.40)] relative transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_8.61373px_80px_0_rgba(255,153,58,0.40)] hover:scale-105"
+                >
+                  <p class="max-w-[9ch] absolute top-4 left-[1.38rem] z-10">
+                    Start from scratch
+                  </p>
+
+                  <img
+                    src="/assets/overview/folder.svg"
+                    alt=""
+                    class="absolute z-10 right-8 bottom-6"
+                  />
+
+                  <!-- Design Watermarks -->
+                  <img
+                    src="/assets//overview/intersect-a1.svg"
+                    alt=""
+                    class="absolute z-0 top-0 left-0"
+                  />
+                  <img
+                    src="/assets//overview/intersect-a2.svg"
+                    alt=""
+                    class="absolute z-0 bottom-0 right-0"
+                  />
+                </div>
+
+                <div
+                  class="mt-[1.62rem] h-[8.075rem] w-[16.15rem] bg-pry-yellow rounded-[1.07669rem] p-[1.38rem] pt-4 text-white font-bold shadow-[0_8.61373px_25.84118px_0_rgba(255,209,67,0.40)] relative transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_8.61373px_80px_0_rgba(255,209,67,0.40)] hover:scale-105"
+                >
+                  <p class="max-w-[9ch] z-10 absolute top-4 left-[1.38rem]">
+                    Start with templates
+                  </p>
+
+                  <img
+                    src="/assets/overview/clock.svg"
+                    alt=""
+                    class="absolute z-10 right-8 bottom-6"
+                  />
+
+                  <!-- Design Watermarks -->
+                  <img
+                    src="/assets//overview/intersect-b1.svg"
+                    alt=""
+                    class="absolute top-0 left-0"
+                  />
+                  <img
+                    src="/assets//overview/intersect-b2.svg"
+                    alt=""
+                    class="absolute bottom-0 right-0"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- RECENT ACTIVITIES -->
+
+            <div class="px-12 py-10">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-9">
+                  <div>
+                    <h2
+                      class="font-bold text-2xl leading-8 text-gray-900 tracking-[-0.03rem]"
+                    >
+                      Recents
+                    </h2>
+
+                    <div
+                      class="text-sec-gray6 text-[0.75rem] font-medium tracking-[-0.015rem] leading-5 flex justify-between items-center"
+                    >
+                      <span>Sort</span>
+                      <span>Recent</span>
+                    </div>
+                  </div>
+
+                  <button class="font-medium text-sm text-pry-blue-light">
+                    View all
+                  </button>
+                </div>
+
+                <div class="flex items-center max-w-[100px] gap-2">
+                  <img src="/assets/overview/search.svg" alt="" />
+                  <input
+                    type="search"
+                    name=""
+                    id=""
+                    placeholder="Search..."
+                    class="max-w-full py-2 px-3 placeholder:text-sm placeholder:text-sec-gray4"
+                  />
+                </div>
+              </div>
+
+              <ul
+                class="grid grid-cols-2 gap-x-[1.88rem] gap-y-[1.56rem] mt-[1.62rem]"
+              >
+                <template x-for="item in recents">
+                  <li
+                    class="flex items-center justify-between bg-sec-gray p-[0.94rem] rounded-2xl gap-[0.94rem]"
+                  >
+                    <div
+                      :style="'background-color: ' + item.color + ';'"
+                      class="p-[0.81rem] rounded-xl"
+                    >
+                      <img :src="item.image" alt="" />
+                    </div>
+
+                    <div class="flex-grow text-[0.75rem]">
+                      <h6 class="font-semibold" x-text="item.text"></h6>
+
+                      <p class="text-sec-gray4 mt-[0.37rem]">ABC Company</p>
+                    </div>
+
+                    <img src="/assets//overview/vertical.svg" alt="" />
+                  </li>
+                </template>
+              </ul>
+            </div>
+          </section>
         </div>
       </div>
 

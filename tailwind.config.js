@@ -16,6 +16,7 @@ module.exports = {
         },
         pry: {
           black: '#303030',
+          yellow: '#FFD143',
           blue: {
             light: '#009DE0',
             dark: '#354B9E',
@@ -28,6 +29,9 @@ module.exports = {
         },
         sec: {
           main: '#141522',
+          gray: '#F6F6F6',
+          gray4: '#BDBDBD',
+          gray6: '#A3AED0',
           darkGrey: '#1B2559',
         },
       },
