@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Manrope:wght@700&family=Plus+Jakarta+Sans:wght@500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,4 +34,18 @@
   position: absolute;
   bottom: -105px;
   right: -100px;
+}
+
+/* Custom Styling for Statistics grid section */
+
+.rect {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.25rem;
+  height: 1.875rem;
+  background: #009de0;
+  border-radius: 1.25rem;
+  transform: translateY(-50%);
 }

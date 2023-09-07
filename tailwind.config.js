@@ -15,6 +15,7 @@ module.exports = {
           700: '#344054',
         },
         pry: {
+          black: '#303030',
           blue: {
             light: '#009DE0',
             dark: '#354B9E',

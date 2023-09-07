@@ -89,42 +89,139 @@
       </div>
     </nav>
 
-    <main>
-      <!-- Greetings / Profile Section -->
-      <header
-        class="flex justify-between items-center pt-[4.81rem] pb-[1.56rem] px-12 border-b-2 border-b-pry-border-200"
-      >
-        <!-- Welcome Back  -->
-        <div class="font-inter">
-          <h3 class="text-pry-blue-alt text-lg tracking-[0.05625rem]">
-            Hello <strong>AYUSS</strong>, Welcome back!
-          </h3>
+    <main class="grid grid-cols-[1fr_auto]">
+      <div>
+        <!-- Greetings / Profile Section -->
+        <header
+          class="flex justify-between items-center pt-[4.81rem] pb-[1.56rem] px-12 border-b-2 border-b-pry-border-200"
+        >
+          <!-- Welcome Back  -->
+          <div class="font-inter">
+            <h3 class="text-pry-blue-alt text-lg tracking-[0.05625rem]">
+              Hello <strong>AYUSS</strong>, Welcome back!
+            </h3>
 
-          <p class="mt-[0.62rem]">Mon 22, 2021 | 10:00 AM</p>
+            <p class="mt-[0.62rem]">Mon 22, 2021 | 10:00 AM</p>
+          </div>
+
+          <div class="flex items-center gap-[1.125rem]">
+            <img src="/assets/header/notification.svg" alt="" />
+
+            <div
+              class="flex items-center bg-[#354B9E14] rounded-[0.625rem] py-[0.75rem] px-4 gap-[0.75rem]"
+            >
+              <img
+                src="/assets/header/avatar.png"
+                alt=""
+                class="w-[2.5rem] h-[2.5rem]"
+              />
+
+              <div class="font-inter text-sm w-[120px]">
+                <h6 class="text-gray-700 font-semibold">Ismail Ayuss</h6>
+
+                <p class="mt-1 text-pry-blue-light">Basic Plan</p>
+              </div>
+
+              <img src="/assets/header/chevron-down.svg" alt="" />
+            </div>
+          </div>
+        </header>
+
+        <!-- Contains all sections that change based on sidebar input -->
+
+        <div>
+          <!-- Page that displays when btn.Overview is clicked/active -->
+          <section id="#overview"></section>
+        </div>
+      </div>
+
+      <!-- Side page that displays when btn.Overview is clicked/active -->
+      <div class="px-[2.5rem] w-[29.38rem] border-l-2 border-l-pry-border-100">
+        <div class="bg-[#354B9E14] p-8 font-inter rounded-b-[1.533rem] mb-4">
+          <img src="/assets/overview/design.png" alt="" />
+
+          <h2
+            class="font-semibold text-[1.533rem] leading-[134%] max-w-[13ch] text-pry-blue-dark mt-[.875rem]"
+          >
+            We are a creative digital agency
+          </h2>
+
+          <p
+            class="font-light text-gray-500 leading-[140%] mt-[0.69rem] mb-[1.76rem] max-w-[17rem]"
+          >
+            Hire us to create and develop your social media calendar and
+            contents.
+          </p>
+
+          <button
+            class="rounded-[0.7665rem] bg-pry-blue-dark text-white w-[9rem] py-3"
+          >
+            Hire us
+          </button>
         </div>
 
-        <div class="flex items-center gap-[1.125rem]">
-          <img src="/assets/header/notification.svg" alt="" />
-
-          <div
-            class="flex items-center bg-[#354B9E14] rounded-[0.625rem] py-[0.75rem] px-4 gap-[0.75rem]"
+        <div>
+          <h2
+            class="mb-[0.63rem] font-manrope text-2xl leading-normal text-pry-black font-bold"
           >
-            <img
-              src="/assets/header/avatar.png"
-              alt=""
-              class="w-[2.5rem] h-[2.5rem]"
-            />
+            Statistics
+          </h2>
 
-            <div class="font-inter text-sm w-[120px]">
-              <h6 class="text-gray-700 font-semibold">Ismail Ayuss</h6>
+          <div class="grid grid-cols-2 gap-[1.88rem]">
+            <div
+              class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between"
+            >
+              <h6 class="text-[#8EA3B7] max-w-[7ch]">Active Calenders</h6>
 
-              <p class="mt-1 text-pry-blue-light">Basic Plan</p>
+              <p
+                class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right"
+              >
+                <span class="rect"></span>
+                02
+              </p>
             </div>
 
-            <img src="/assets/header/chevron-down.svg" alt="" />
+            <div
+              class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between"
+            >
+              <h6 class="text-[#8EA3B7] max-w-[7ch]">Completed Calenders</h6>
+
+              <p
+                class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right"
+              >
+                <span class="rect"></span>
+                25
+              </p>
+            </div>
+
+            <div
+              class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between"
+            >
+              <h6 class="text-[#8EA3B7] max-w-[7ch]">Archived</h6>
+
+              <p
+                class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right"
+              >
+                <span class="rect"></span>
+                03
+              </p>
+            </div>
+
+            <div
+              class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between"
+            >
+              <h6 class="text-[#8EA3B7] max-w-[7ch]">Drafts</h6>
+
+              <p
+                class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right"
+              >
+                <span class="rect"></span>
+                05
+              </p>
+            </div>
           </div>
         </div>
-      </header>
+      </div>
     </main>
   </body>
 </html>
