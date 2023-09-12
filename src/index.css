@@ -49,3 +49,16 @@
   border-radius: 1.25rem;
   transform: translateY(-50%);
 }
+
+/* Custom Styling for placeholder in Calenders input section */
+
+.after-inp::after {
+  content: attr('After /');
+  position: absolute;
+  top: 50%;
+  left: 1.865rem;
+  z-index: 50;
+  font-size: 1rem;
+  color: black;
+  transform: translateY(-50%);
+}

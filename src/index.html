@@ -12,6 +12,8 @@
 
   <body
     x-data="{
+      page: 'overview',
+      currentSection: 1,
       recents: [
                   { image: '/assets/overview/book.svg', text: 'October 2023', color: '#369FFF33' },
                   { image: '/assets/overview/edit.svg', text: 'December 2022', color: '#FF993A33' },
@@ -141,9 +143,9 @@
 
         <!-- Contains all sections that change based on sidebar input -->
 
-        <div>
+        <div class="min-h-[53.62rem]">
           <!-- Page that displays when btn.Overview is clicked/active -->
-          <section class="font-inter">
+          <section class="font-inter" x-show="page === 'overview'">
             <!-- TOP DASHBOARD -->
 
             <div
@@ -271,17 +273,99 @@
                       <p class="text-sec-gray4 mt-[0.37rem]">ABC Company</p>
                     </div>
 
-                    <img src="/assets//overview/vertical.svg" alt="" />
+                    <button>
+                      <img src="/assets/overview/vertical.svg" alt="" />
+                    </button>
                   </li>
                 </template>
               </ul>
             </div>
           </section>
+
+          <!-- Page that displays when btn.Overview is clicked/active -->
+          <section
+            x-show="page === 'calender'"
+            class="grid grid-cols-[55%_45%] min-h-[53.6875rem]"
+          >
+            <!-- Grid 1 -->
+            <div x-show="currentSection === 1" class="px-12 py-[2.44rem]">
+              <div class="font-inter border-b border-[#F5F5F5] pb-8">
+                <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
+                  Give your calender a Name
+                </h1>
+
+                <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
+                  Add a Name, and select the category of the business you are
+                  creating the calendar for
+                </p>
+              </div>
+
+              <!-- Form only shows on the 1st section -->
+              <form class="font-inter">
+                <div class="mt-[1.625rem] w-full">
+                  <label for="name" class="text-[#696F79] font-medium"
+                    >Calender Name</label
+                  >
+
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="January calendar"
+                    class="block w-full rounded-[0.375rem] border border-[#8692A6] focus:border-[#1565d8] bg-white focus:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] mt-[0.88rem] py-[1.44rem] px-[1.865rem] relative after-inp placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
+                  />
+                </div>
+
+                <div class="mt-[1.625rem]">
+                  <label for="business" class="text-[#696F79] font-medium"
+                    >Business Category</label
+                  >
+                  <select
+                    name="business"
+                    class="block w-full rounded-[0.375rem] border border-[#8692A6] focus:border-[#1565d8] bg-white focus:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] py-[1.44rem] mt-[0.88rem] px-[1.865rem] placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
+                    aria-placeholder="please select"
+                  >
+                    <option value="">Option 1</option>
+                    <option value="">Option 2</option>
+                    <option value="">Option 3</option>
+                    <option value="">Option 4</option>
+                  </select>
+                </div>
+
+                <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
+                  <button
+                    @click.prevent="page = 'overview'"
+                    class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark"
+                  >
+                    Back
+                  </button>
+
+                  <button
+                    @click.prevent="currentSection = 2"
+                    class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white"
+                    type="submit"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div x-show="currentSection === 2">Wueld</div>
+            <div x-show="currentSection === 3">Hello</div>
+
+            <!-- Grid 2 -->
+            <div x-show="currentSection === 1" class="bg-pry-blue-dark"></div>
+            <div x-show="currentSection === 2" class="bg-pry-yellow"></div>
+            <div x-show="currentSection === 3" class="bg-pry-blue-light"></div>
+          </section>
         </div>
       </div>
 
       <!-- Side page that displays when btn.Overview is clicked/active -->
-      <div class="px-[2.5rem] w-[29.38rem] border-l-2 border-l-pry-border-100">
+      <div
+        x-show="page === 'overview'"
+        class="px-[2.5rem] w-[29.38rem] border-l-2 border-l-pry-border-100"
+      >
         <div class="bg-[#354B9E14] p-8 font-inter rounded-b-[1.533rem] mb-4">
           <img src="/assets/overview/design.png" alt="" />
 
