@@ -6,8 +6,10 @@
     <link href="/dist/output.css" rel="stylesheet" />
 
     <title>Tentix</title>
-
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"
+    ></script>
   </head>
 
   <body
@@ -21,8 +23,28 @@
                   { image: '/assets/overview/volume.svg', text: 'Feburary 2021', color: '#FFD14333' },
                   { image: '/assets/overview/volume.svg', text: 'November 2021', color: '#FFD14333' },
                   { image: '/assets/overview/headphone.svg', text: 'January 2021', color: '#8AC53E33' },
-                  ]
-    }"
+                  ],
+    socials: [
+      { image:'/assets/calender/facebook.svg', text: 'Facebook' },
+      { image: '/assets/calender/instagram.svg', text: 'Instagram'},
+      { image: '/assets/calender/twitter.svg', text: 'Twitter'},
+      { image: '/assets/calender/linkedin.svg', text: 'LinkedIn'},
+      { image: '/assets/calender/pinterest.svg', text: 'Pinterest'},
+      { image: '/assets/calender/youtube.svg', text: 'YouTube'},
+      { image: '/assets/calender/snapchat.svg', text: 'Snapchat'},
+      { image: '/assets/calender/tumblr.svg', text: 'Tumblr'},
+      { image: '/assets/calender/reddit.svg', text: 'Reddit'},
+      { image: '/assets/calender/facebook.svg', text: 'Threads'},
+      { image: '/assets/calender/tiktok.svg', text: 'TikTok'},
+      { image: '/assets/calender/telegram.svg', text: 'Telegram'},
+    ],
+  contents: [
+  'Educational/Informative', 'Promotional/Sales', 'Behind-the-Scenes', 'User-Generated Content', 'Industry News/Updates', 'Entertainment/Humor',
+  'Customer Stories/Testimonials', 'How-To Guides', 'Events/Community Engagement', 'Product Demonstrations', 'Polls and Surveys', 'Inspirational/Motivational',
+  'Throwback/Flashback Content', 'Employee Spotlights', 'Influencer Collaborations', 'Contests and Giveaways', 'Trending Topics/Challenges', 'Tips and Tricks',
+  'Social Causes/Activism', 'FAQs', 'Memes and GIFs', 'Thought Leadership', 'Memes and GIFs', 'Live Videos/Streaming', 'Seasonal/Holiday Content', 'Seasonal/Holiday Content',
+  'Events/Community Engagement', 'Product Reviews'
+  ]}"
     class="max-w-[1440px] mx-auto min-h-screen grid grid-cols-[240px_1fr]"
   >
     <!-- SIDEBAR  -->
@@ -285,11 +307,11 @@
           <!-- Page that displays when btn.Overview is clicked/active -->
           <section
             x-show="page === 'calender'"
-            class="grid grid-cols-[55%_45%] min-h-[53.6875rem]"
+            class="grid grid-cols-[60%_40%] min-h-[53.6875rem]"
           >
             <!-- Grid 1 -->
-            <div x-show="currentSection === 1" class="px-12 py-[2.44rem]">
-              <div class="font-inter border-b border-[#F5F5F5] pb-8">
+            <div class="px-12 py-[2.44rem]" x-show="currentSection === 1">
+              <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
                 <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
                   Give your calender a Name
                 </h1>
@@ -350,13 +372,96 @@
               </form>
             </div>
 
-            <div x-show="currentSection === 2">Wueld</div>
-            <div x-show="currentSection === 3">Hello</div>
+            <div class="px-12 py-[2.44rem]" x-show="currentSection === 2">
+              <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
+                <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
+                  Select the platforms
+                </h1>
+
+                <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
+                  Select the platforms you want to create contents for
+                </p>
+              </div>
+
+              <ul
+                class="grid grid-cols-3 gap-y-[0.37rem] gap-x-2 mt-5 max-w-[26.68rem]"
+              >
+                <template x-for="item in socials">
+                  <li>
+                    <button
+                      class="px-[0.865rem] py-[0.69rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6]"
+                    >
+                      <img :src="item.image" alt="" />
+
+                      <p x-text="item.text"></p>
+                    </button>
+                  </li>
+                </template>
+              </ul>
+
+              <!-- Nav Buttons -->
+              <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
+                <button
+                  @click.prevent="currentSection = 1"
+                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark"
+                >
+                  Back
+                </button>
+
+                <button
+                  @click.prevent="currentSection = 3"
+                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div class="px-12 py-[2.44rem]" x-show="currentSection === 3">
+              <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
+                <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
+                  Content Types/Pillars
+                </h1>
+
+                <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
+                  Select the platforms you want to create contents for (as many
+                  as you want)
+                </p>
+              </div>
+
+              <ul class="flex flex-wrap gap-y-[0.69rem] gap-x-[0.63rem] mt-5">
+                <template x-for="item in contents">
+                  <li>
+                    <button
+                      class="px-[1.15rem] py-[0.75rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6]"
+                      x-text="item"
+                    ></button>
+                  </li>
+                </template>
+              </ul>
+
+              <!-- Nav Buttons -->
+              <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
+                <button
+                  @click.prevent="currentSection = 2"
+                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark"
+                >
+                  Back
+                </button>
+
+                <button
+                  @click.prevent="currentSection = 4"
+                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
 
             <!-- Grid 2 -->
             <div x-show="currentSection === 1" class="bg-pry-blue-dark"></div>
             <div x-show="currentSection === 2" class="bg-pry-yellow"></div>
-            <div x-show="currentSection === 3" class="bg-pry-blue-light"></div>
+            <div x-show="currentSection === 3" class="bg-pry-blue-alt"></div>
           </section>
         </div>
       </div>
