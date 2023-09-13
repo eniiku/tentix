@@ -68,15 +68,49 @@
 
         <div>
           <!-- Overview NavLink -->
-          <button @click.prevent="page = 'overview'" class="nav__link">
-            <span><img src="/assets/sidebar/user.svg" alt="" /></span>
+          <button
+            @click.prevent="page = 'overview'"
+            class="nav__link"
+            x-bind:class="{'nav__link-active': page === 'overview'}"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.3334 14V12.6667C13.3334 11.9594 13.0525 11.2811 12.5524 10.781C12.0523 10.281 11.374 10 10.6667 10H5.33341C4.62617 10 3.94789 10.281 3.4478 10.781C2.9477 11.2811 2.66675 11.9594 2.66675 12.6667V14M10.6667 4.66667C10.6667 6.13943 9.47284 7.33333 8.00008 7.33333C6.52732 7.33333 5.33341 6.13943 5.33341 4.66667C5.33341 3.19391 6.52732 2 8.00008 2C9.47284 2 10.6667 3.19391 10.6667 4.66667Z"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
 
             <span>Overview</span>
           </button>
 
           <!-- Content Calender NavLink -->
-          <button @click.prevent="page = 'calender'" class="nav__link">
-            <span><img src="/assets/sidebar/calender.svg" alt="" /></span>
+          <button
+            @click.prevent="page = 'calender'"
+            class="nav__link"
+            x-bind:class="{'nav__link-active': page === 'calender'}"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.6667 1.33334V4.00001M5.33333 1.33334V4.00001M2 6.66668H14M3.33333 2.66668H12.6667C13.403 2.66668 14 3.26363 14 4.00001V13.3333C14 14.0697 13.403 14.6667 12.6667 14.6667H3.33333C2.59695 14.6667 2 14.0697 2 13.3333V4.00001C2 3.26363 2.59695 2.66668 3.33333 2.66668Z"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
 
             <span>Content Calender</span>
           </button>
@@ -433,7 +467,7 @@
                 <template x-for="item in contents">
                   <li>
                     <button
-                      class="px-[1.15rem] py-[0.75rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6]"
+                      class="px-[1.15rem] py-[0.75rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:shadow-[inset_0_0_0_2em_rgb(188 188 188)]"
                       x-text="item"
                     ></button>
                   </li>
