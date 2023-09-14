@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+        dmSans: ['DM Sans', 'sans-serif'],
       },
       colors: {
         gray: {

@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/dist/output.css" rel="stylesheet" />
 
-    <title>Tentix</title>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"
-    ></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/dist/output.css" rel="stylesheet" />
 
-  <body
-    x-data="{
+  <title>Tentix</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="{
       page: 'overview',
       currentSection: 1,
       recents: [
@@ -44,554 +41,535 @@
   'Throwback/Flashback Content', 'Employee Spotlights', 'Influencer Collaborations', 'Contests and Giveaways', 'Trending Topics/Challenges', 'Tips and Tricks',
   'Social Causes/Activism', 'FAQs', 'Memes and GIFs', 'Thought Leadership', 'Memes and GIFs', 'Live Videos/Streaming', 'Seasonal/Holiday Content', 'Seasonal/Holiday Content',
   'Events/Community Engagement', 'Product Reviews'
-  ]}"
-    class="max-w-[1440px] mx-auto min-h-screen grid grid-cols-[240px_1fr]"
-  >
-    <!-- SIDEBAR  -->
+  ],
+calender: [
+  {num: 30, tips: false, prod: false, done: false, color: ''},
+  {num: 31, tips: false, prod: false, done: false, color: ''},
+  {num: 1, tips: true, prod: true, done: true, color: '#00854D4A' },
+  {num: 2, tips: false, prod: false, done: false, color: ''},
+  {num: 3, tips: true, prod: true, done: true, color: '#0035854A'},
+  {num: 4, tips: false, prod: false, done: false, color: ''},
+  {num: 5, tips: true, prod: true, done: true, color: '#00854D4A'},
+  {num: 6, tips: false, prod: false, done: false, color: ''},
+  {num: 7, tips: true, prod: true, done: true, color: '#BA45204A'},
+  {num: 8, tips: true, prod: true, done: true, color: '#58D34D4A'},
+  {num: 9, tips: false, prod: false, done: false, color: ''},
+  {num: 10, tips: false, prod: false, done: false, color: ''},
+  {num: 11, tips: true, prod: true, done: true, color: '#B82AB24A'},
+  {num: 12, tips: true, prod: true, done: true, color: '#E8B9124A'},
+  {num: 13, tips: true, prod: true, done: true, color: '#241E6E4A'},
+  {num: 14, tips: false, prod: false, done: false, color: ''},
+  {num: 15, tips: false, prod: false, done: false, color: ''},
+  {num: 16, tips: true, prod: true, done: true, color: '#CB04C34A'},
+  {num: 17, tips: false, prod: false, done: false, color: ''},
+  {num: 18, tips: true, prod: true, done: true, color: '#00854D4A'},
+  {num: 19, tips: false, prod: false, done: false, color: ''},
+  {num: 20, tips: false, prod: false, done: false, color: ''},
+  {num: 21, tips: true, prod: true, done: true, color: '#9085234A'},
+  {num: 22, tips: false, prod: false, done: false, color: ''},
+  {num: 23, tips: true, prod: true, done: true, color: '#22ADB54A'},
+  {num: 24, tips: false, prod: false, done: false, color: ''},
+  {num: 25, tips: false, prod: false, done: false, color: ''},
+  {num: 26, tips: true, prod: true, done: true, color: '#00854D4A'},
+  {num: 27, tips: true, prod: true, done: true, color: '#00854D4A'},
+  {num: 28, tips: false, prod: false, done: false, color: ''},
+  {num: 29, tips: true, prod: true, done: true, color: '#CB04C34A'},
+  {num: 30, tips: false, prod: false, done: false, color: ''},
+  {num: 31, tips: true, prod: true, done: true, color: '#BA45204A'},
+  {num: 1, tips: false, prod: false, done: false, color: ''},
+  {num: 2, tips: false, prod: false, done: false, color: ''},
+]}" class="max-w-[1440px] mx-auto grid grid-cols-[240px_1fr]">
+  <!-- SIDEBAR  -->
 
-    <nav
-      class="border-r-2 border-r-pry-border-100 pt-[5.51rem] pb-[2.75rem] px-[1.6rem] flex flex-col justify-between"
-    >
-      <!-- Main Navigation -->
+  <nav class="border-r-2 border-r-pry-border-100 pt-[5.51rem] pb-[2.75rem] px-[1.6rem] flex flex-col justify-between">
+    <!-- Main Navigation -->
 
-      <div>
-        <!-- LOGO -->
+    <div>
+      <!-- LOGO -->
 
-        <div
-          class="flex items-center gap-[0.6rem] font-inter text-[1.7103rem] font-bold text-pry-blue-dark mb-[2.4rem]"
-        >
-          <img src="/assets/sidebar/logo.svg" alt="" />
-          <span>Tentix</span>
-        </div>
-
-        <!-- Navigation Links -->
-
-        <div>
-          <!-- Overview NavLink -->
-          <button
-            @click.prevent="page = 'overview'"
-            class="nav__link"
-            x-bind:class="{'nav__link-active': page === 'overview'}"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.3334 14V12.6667C13.3334 11.9594 13.0525 11.2811 12.5524 10.781C12.0523 10.281 11.374 10 10.6667 10H5.33341C4.62617 10 3.94789 10.281 3.4478 10.781C2.9477 11.2811 2.66675 11.9594 2.66675 12.6667V14M10.6667 4.66667C10.6667 6.13943 9.47284 7.33333 8.00008 7.33333C6.52732 7.33333 5.33341 6.13943 5.33341 4.66667C5.33341 3.19391 6.52732 2 8.00008 2C9.47284 2 10.6667 3.19391 10.6667 4.66667Z"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-            <span>Overview</span>
-          </button>
-
-          <!-- Content Calender NavLink -->
-          <button
-            @click.prevent="page = 'calender'"
-            class="nav__link"
-            x-bind:class="{'nav__link-active': page === 'calender'}"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.6667 1.33334V4.00001M5.33333 1.33334V4.00001M2 6.66668H14M3.33333 2.66668H12.6667C13.403 2.66668 14 3.26363 14 4.00001V13.3333C14 14.0697 13.403 14.6667 12.6667 14.6667H3.33333C2.59695 14.6667 2 14.0697 2 13.3333V4.00001C2 3.26363 2.59695 2.66668 3.33333 2.66668Z"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-            <span>Content Calender</span>
-          </button>
-
-          <!-- Content Library NavLink -->
-          <button class="nav__link">
-            <span><img src="/assets/sidebar/folder.svg" alt="" /></span>
-
-            <span>Content Library</span>
-          </button>
-
-          <!-- Help NavLink -->
-          <button class="nav__link">
-            <span><img src="/assets/sidebar/help.svg" alt="" /></span>
-
-            <span>Help & Support</span>
-          </button>
-
-          <!-- Settings NavLink -->
-          <button class="nav__link">
-            <span><img src="/assets/sidebar/settings.svg" alt="" /></span>
-
-            <span>Settings</span>
-          </button>
-        </div>
+      <div class="flex items-center gap-[0.6rem] font-inter text-[1.7103rem] font-bold text-pry-blue-dark mb-[2.4rem]">
+        <img src="/assets/sidebar/logo.svg" alt="" />
+        <span>Tentix</span>
       </div>
 
-      <!-- CTA -->
+      <!-- Navigation Links -->
 
-      <div
-        class="bg-sec-main rounded-[0.625rem] font-jakarta font-semibold text-white text-center py-7 px-4 relative circle-watermark"
-      >
-        <div class="max-w-[8.125rem] mx-auto">
-          <h4 class="text-lg tracking-[-0.0225rem]">Upgrade your plan</h4>
+      <div class="grow h-full">
+        <!-- Overview NavLink -->
+        <button @click.prevent="page = 'overview'" class="nav__link"
+          x-bind:class="{'nav__link-active': page === 'overview'}">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13.3334 14V12.6667C13.3334 11.9594 13.0525 11.2811 12.5524 10.781C12.0523 10.281 11.374 10 10.6667 10H5.33341C4.62617 10 3.94789 10.281 3.4478 10.781C2.9477 11.2811 2.66675 11.9594 2.66675 12.6667V14M10.6667 4.66667C10.6667 6.13943 9.47284 7.33333 8.00008 7.33333C6.52732 7.33333 5.33341 6.13943 5.33341 4.66667C5.33341 3.19391 6.52732 2 8.00008 2C9.47284 2 10.6667 3.19391 10.6667 4.66667Z"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
 
-          <p class="tracking-[-0.015rem] text-[0.75rem] font-medium mt-3 mb-6">
-            to access all our premium features
-          </p>
-        </div>
+          <span>Overview</span>
+        </button>
 
-        <button
-          class="bg-white text-sec-main rounded-[0.625rem] px-6 py-3 tracking-[-0.015rem] text-[0.75rem] w-full"
-        >
-          Go To PRO
+        <!-- Content Calender NavLink -->
+        <button @click.prevent="page = 'calender'" class="nav__link"
+          x-bind:class="{'nav__link-active': page === 'calender'}">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10.6667 1.33334V4.00001M5.33333 1.33334V4.00001M2 6.66668H14M3.33333 2.66668H12.6667C13.403 2.66668 14 3.26363 14 4.00001V13.3333C14 14.0697 13.403 14.6667 12.6667 14.6667H3.33333C2.59695 14.6667 2 14.0697 2 13.3333V4.00001C2 3.26363 2.59695 2.66668 3.33333 2.66668Z"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+          <span>Content Calender</span>
+        </button>
+
+        <!-- Content Library NavLink -->
+        <button class="nav__link">
+          <span><img src="/assets/sidebar/folder.svg" alt="" /></span>
+
+          <span>Content Library</span>
+        </button>
+
+        <!-- Help NavLink -->
+        <button class="nav__link">
+          <span><img src="/assets/sidebar/help.svg" alt="" /></span>
+
+          <span>Help & Support</span>
+        </button>
+
+        <!-- Settings NavLink -->
+        <button class="nav__link">
+          <span><img src="/assets/sidebar/settings.svg" alt="" /></span>
+
+          <span>Settings</span>
         </button>
       </div>
-    </nav>
+    </div>
 
-    <main class="grid grid-cols-[1fr_auto]">
-      <div>
-        <!-- Greetings / Profile Section -->
-        <header
-          class="flex justify-between items-center pt-[4.81rem] pb-[1.56rem] px-12 border-b-2 border-b-pry-border-200"
-        >
-          <!-- Welcome Back  -->
-          <div class="font-inter">
-            <h3 class="text-pry-blue-alt text-lg tracking-[0.05625rem]">
-              Hello <strong>AYUSS</strong>, Welcome back!
-            </h3>
+    <!-- CTA -->
 
-            <p class="mt-[0.62rem]">Mon 22, 2021 | 10:00 AM</p>
-          </div>
+    <div
+      class="bg-sec-main rounded-[0.625rem] font-jakarta font-semibold text-white text-center py-7 px-4 relative circle-watermark">
+      <div class="max-w-[8.125rem] mx-auto">
+        <h4 class="text-lg tracking-[-0.0225rem]">Upgrade your plan</h4>
 
-          <div class="flex items-center gap-[1.125rem]">
-            <button>
-              <img src="/assets/header/notification.svg" alt="" />
-            </button>
-
-            <button
-              class="flex items-center bg-[#354B9E14] rounded-[0.625rem] py-[0.75rem] px-4 gap-[0.75rem] hover:shadow-inner transition-all duration-100 ease-in"
-            >
-              <img
-                src="/assets/header/avatar.png"
-                alt=""
-                class="w-[2.5rem] h-[2.5rem]"
-              />
-
-              <div class="font-inter text-sm w-[120px]">
-                <h6 class="text-gray-700 font-semibold">Ismail Ayuss</h6>
-
-                <p class="mt-1 text-pry-blue-light">Basic Plan</p>
-              </div>
-
-              <img src="/assets/header/chevron-down.svg" alt="" />
-            </button>
-          </div>
-        </header>
-
-        <!-- Contains all sections that change based on sidebar input -->
-
-        <div class="min-h-[53.62rem]">
-          <!-- Page that displays when btn.Overview is clicked/active -->
-          <section class="font-inter" x-show="page === 'overview'">
-            <!-- TOP DASHBOARD -->
-
-            <div
-              class="flex items-end justify-between gap-[3rem] py-[2rem] px-[3rem] border-b-2 border-b-pry-border-200"
-            >
-              <div
-                class="h-[21.75rem] w-[20.07694rem] bg-pry-blue-light rounded-[1.33844rem] p-[1.56rem] text-white text-xl font-bold shadow-[0_10.70769px_32.12308px_0_rgba(54,159,255,0.40)] transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_10.70769px_60px_0_rgba(54,159,255,0.40)] hover:scale-105"
-              >
-                <p class="max-w-[9ch]">September Calender</p>
-              </div>
-
-              <div>
-                <h3 class="text-pry-black text-xl mb-4 font-bold">
-                  Create a Calender
-                </h3>
-
-                <div
-                  class="h-[8.075rem] w-[16.15rem] bg-[#FF993A] rounded-[1.07669rem] text-white font-bold shadow-[0px_8.61373px_25.84118px_0_rgba(255,153,58,0.40)] relative transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_8.61373px_80px_0_rgba(255,153,58,0.40)] hover:scale-105"
-                >
-                  <p class="max-w-[9ch] absolute top-4 left-[1.38rem] z-10">
-                    Start from scratch
-                  </p>
-
-                  <img
-                    src="/assets/overview/folder.svg"
-                    alt=""
-                    class="absolute z-10 right-8 bottom-6"
-                  />
-
-                  <!-- Design Watermarks -->
-                  <img
-                    src="/assets//overview/intersect-a1.svg"
-                    alt=""
-                    class="absolute z-0 top-0 left-0"
-                  />
-                  <img
-                    src="/assets//overview/intersect-a2.svg"
-                    alt=""
-                    class="absolute z-0 bottom-0 right-0"
-                  />
-                </div>
-
-                <div
-                  class="mt-[1.62rem] h-[8.075rem] w-[16.15rem] bg-pry-yellow rounded-[1.07669rem] p-[1.38rem] pt-4 text-white font-bold shadow-[0_8.61373px_25.84118px_0_rgba(255,209,67,0.40)] relative transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_8.61373px_80px_0_rgba(255,209,67,0.40)] hover:scale-105"
-                >
-                  <p class="max-w-[9ch] z-10 absolute top-4 left-[1.38rem]">
-                    Start with templates
-                  </p>
-
-                  <img
-                    src="/assets/overview/clock.svg"
-                    alt=""
-                    class="absolute z-10 right-8 bottom-6"
-                  />
-
-                  <!-- Design Watermarks -->
-                  <img
-                    src="/assets//overview/intersect-b1.svg"
-                    alt=""
-                    class="absolute top-0 left-0"
-                  />
-                  <img
-                    src="/assets//overview/intersect-b2.svg"
-                    alt=""
-                    class="absolute bottom-0 right-0"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- RECENT ACTIVITIES -->
-
-            <div class="px-12 py-10">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-9">
-                  <div>
-                    <h2
-                      class="font-bold text-2xl leading-8 text-gray-900 tracking-[-0.03rem]"
-                    >
-                      Recents
-                    </h2>
-
-                    <div
-                      class="text-sec-gray6 text-[0.75rem] font-medium tracking-[-0.015rem] leading-5 flex justify-between items-center"
-                    >
-                      <span>Sort</span>
-                      <span>Recent</span>
-                    </div>
-                  </div>
-
-                  <button class="font-medium text-sm text-pry-blue-light">
-                    View all
-                  </button>
-                </div>
-
-                <div class="flex items-center max-w-[100px] gap-2">
-                  <img src="/assets/overview/search.svg" alt="" />
-
-                  <input
-                    type="search"
-                    name="search"
-                    placeholder="Search..."
-                    class="max-w-full py-2 px-3 placeholder:text-sm placeholder:text-sec-gray4"
-                  />
-                </div>
-              </div>
-
-              <ul
-                class="grid grid-cols-2 gap-x-[1.88rem] gap-y-[1.56rem] mt-[1.62rem]"
-              >
-                <template x-for="item in recents">
-                  <li
-                    class="flex items-center justify-between bg-sec-gray p-[0.94rem] rounded-2xl gap-[0.94rem] hover:shadow-inner transition-shadow duration-100 ease-in"
-                  >
-                    <div
-                      :style="'background-color: ' + item.color + ';'"
-                      class="p-[0.81rem] rounded-xl"
-                    >
-                      <img :src="item.image" alt="" />
-                    </div>
-
-                    <div class="flex-grow text-[0.75rem]">
-                      <h6 class="font-semibold" x-text="item.text"></h6>
-
-                      <p class="text-sec-gray4 mt-[0.37rem]">ABC Company</p>
-                    </div>
-
-                    <button>
-                      <img src="/assets/overview/vertical.svg" alt="" />
-                    </button>
-                  </li>
-                </template>
-              </ul>
-            </div>
-          </section>
-
-          <!-- Page that displays when btn.Overview is clicked/active -->
-          <section
-            x-show="page === 'calender'"
-            class="grid grid-cols-[60%_40%] min-h-[53.6875rem]"
-          >
-            <!-- Grid 1 -->
-            <div class="px-12 py-[2.44rem]" x-show="currentSection === 1">
-              <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
-                <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
-                  Give your calender a Name
-                </h1>
-
-                <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
-                  Add a Name, and select the category of the business you are
-                  creating the calendar for
-                </p>
-              </div>
-
-              <!-- Form only shows on the 1st section -->
-              <form class="font-inter">
-                <div class="mt-[1.625rem] w-full">
-                  <label for="name" class="text-[#696F79] font-medium"
-                    >Calender Name</label
-                  >
-
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="January calendar"
-                    class="block w-full rounded-[0.375rem] border border-[#8692A6] outline-0 hover:border-[#1565d8] active:border-[#1565d8] bg-white hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] active:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] mt-[0.88rem] py-[1.44rem] px-[1.865rem] relative after-inp placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
-                  />
-                </div>
-
-                <div class="mt-[1.625rem]">
-                  <label for="business" class="text-[#696F79] font-medium"
-                    >Business Category</label
-                  >
-                  <select
-                    name="business"
-                    class="block w-full rounded-[0.375rem] border border-[#8692A6] outline-0 hover:border-[#1565d8] active:border-[#1565d8] bg-white hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] active:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] py-[1.44rem] mt-[0.88rem] px-[1.865rem] placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
-                    aria-placeholder="please select"
-                  >
-                    <option value="">Option 1</option>
-                    <option value="">Option 2</option>
-                    <option value="">Option 3</option>
-                    <option value="">Option 4</option>
-                  </select>
-                </div>
-
-                <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
-                  <button
-                    @click.prevent="page = 'overview'"
-                    class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark"
-                  >
-                    Back
-                  </button>
-
-                  <button
-                    @click.prevent="currentSection = 2"
-                    class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white"
-                    type="submit"
-                  >
-                    Next
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            <div class="px-12 py-[2.44rem]" x-show="currentSection === 2">
-              <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
-                <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
-                  Select the platforms
-                </h1>
-
-                <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
-                  Select the platforms you want to create contents for
-                </p>
-              </div>
-
-              <ul
-                class="grid grid-cols-3 gap-y-[0.37rem] gap-x-2 mt-5 max-w-[26.68rem]"
-              >
-                <template x-for="item in socials">
-                  <li>
-                    <button
-                      class="px-[0.865rem] py-[0.69rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:border-[#1565d8] hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] transition-all duration-100 ease-in"
-                    >
-                      <img :src="item.image" alt="" />
-
-                      <p x-text="item.text"></p>
-                    </button>
-                  </li>
-                </template>
-              </ul>
-
-              <!-- Nav Buttons -->
-              <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
-                <button
-                  @click.prevent="currentSection = 1"
-                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark"
-                >
-                  Back
-                </button>
-
-                <button
-                  @click.prevent="currentSection = 3"
-                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white"
-                >
-                  Next
-                </button>
-              </div>
-            </div>
-
-            <div class="px-12 py-[2.44rem]" x-show="currentSection === 3">
-              <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
-                <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
-                  Content Types/Pillars
-                </h1>
-
-                <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
-                  Select the platforms you want to create contents for (as many
-                  as you want)
-                </p>
-              </div>
-
-              <ul class="flex flex-wrap gap-y-[0.69rem] gap-x-[0.63rem] mt-5">
-                <template x-for="item in contents">
-                  <li>
-                    <button
-                      class="px-[1.15rem] py-[0.75rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:border-[#1565d8] hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] transition-all duration-100 ease-in"
-                      x-text="item"
-                    ></button>
-                  </li>
-                </template>
-              </ul>
-
-              <!-- Nav Buttons -->
-              <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
-                <button
-                  @click.prevent="currentSection = 2"
-                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark"
-                >
-                  Back
-                </button>
-
-                <button
-                  @click.prevent="currentSection = 4"
-                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white"
-                >
-                  Next
-                </button>
-              </div>
-            </div>
-
-            <!-- Grid 2 -->
-            <div x-show="currentSection === 1" class="bg-pry-blue-dark"></div>
-            <div x-show="currentSection === 2" class="bg-pry-yellow"></div>
-            <div x-show="currentSection === 3" class="bg-pry-blue-alt"></div>
-          </section>
-        </div>
+        <p class="tracking-[-0.015rem] text-[0.75rem] font-medium mt-3 mb-6">
+          to access all our premium features
+        </p>
       </div>
 
-      <!-- Side page that displays when btn.Overview is clicked/active -->
-      <div
-        x-show="page === 'overview'"
-        class="px-[2.5rem] w-[29.38rem] border-l-2 border-l-pry-border-100"
-      >
-        <div class="bg-[#354B9E14] p-8 font-inter rounded-b-[1.533rem] mb-4">
-          <img src="/assets/overview/design.png" alt="" />
+      <button class="bg-white text-sec-main rounded-[0.625rem] px-6 py-3 tracking-[-0.015rem] text-[0.75rem] w-full">
+        Go To PRO
+      </button>
+    </div>
+  </nav>
 
-          <h2
-            class="font-semibold text-[1.533rem] leading-[134%] max-w-[13ch] text-pry-blue-dark mt-[.875rem]"
-          >
-            We are a creative digital agency
-          </h2>
+  <main class="grid grid-cols-[1fr_auto]">
+    <div>
+      <!-- Greetings / Profile Section -->
+      <header
+        class="flex justify-between items-center pt-[4.81rem] pb-[1.56rem] px-12 border-b-2 border-b-pry-border-200">
+        <!-- Welcome Back  -->
+        <div class="font-inter">
+          <h3 class="text-pry-blue-alt text-lg tracking-[0.05625rem]">
+            Hello <strong>AYUSS</strong>, Welcome back!
+          </h3>
 
-          <p
-            class="font-light text-gray-500 leading-[140%] mt-[0.69rem] mb-[1.76rem] max-w-[17rem]"
-          >
-            Hire us to create and develop your social media calendar and
-            contents.
-          </p>
+          <p class="mt-[0.62rem]">Mon 22, 2021 | 10:00 AM</p>
+        </div>
+
+        <div class="flex items-center gap-[1.125rem]">
+          <button>
+            <img src="/assets/header/notification.svg" alt="" />
+          </button>
 
           <button
-            class="rounded-[0.7665rem] bg-pry-blue-dark text-white w-[9rem] py-3"
-          >
-            Hire us
+            class="flex items-center bg-[#354B9E14] rounded-[0.625rem] py-[0.75rem] px-4 gap-[0.75rem] hover:shadow-inner transition-all duration-100 ease-in">
+            <img src="/assets/header/avatar.png" alt="" class="w-[2.5rem] h-[2.5rem]" />
+
+            <div class="font-inter text-sm w-[120px]">
+              <h6 class="text-gray-700 font-semibold">Ismail Ayuss</h6>
+
+              <p class="mt-1 text-pry-blue-light">Basic Plan</p>
+            </div>
+
+            <img src="/assets/header/chevron-down.svg" alt="" />
           </button>
         </div>
+      </header>
 
-        <div>
-          <h2
-            class="mb-[0.63rem] font-manrope text-2xl leading-normal text-pry-black font-bold"
-          >
-            Statistics
-          </h2>
+      <!-- Contains all sections that change based on sidebar input -->
 
-          <div class="grid grid-cols-2 gap-[1.88rem]">
+      <div class="min-h-[53.62rem]">
+        <!-- Page that displays when btn.Overview is clicked/active -->
+        <section class="font-inter" x-show="page === 'overview'">
+          <!-- TOP DASHBOARD -->
+
+          <div class="flex items-end justify-between gap-[3rem] py-[2rem] px-[3rem] border-b-2 border-b-pry-border-200">
             <div
-              class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between"
-            >
-              <h6 class="text-[#8EA3B7] max-w-[7ch]">Active Calenders</h6>
+              class="h-[21.75rem] w-[20.07694rem] bg-pry-blue-light rounded-[1.33844rem] p-[1.56rem] text-white text-xl font-bold shadow-[0_10.70769px_32.12308px_0_rgba(54,159,255,0.40)] transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_10.70769px_60px_0_rgba(54,159,255,0.40)] hover:scale-105">
+              <p class="max-w-[9ch]">September Calender</p>
+            </div>
 
-              <p
-                class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right"
-              >
-                <span class="rect"></span>
-                02
+            <div>
+              <h3 class="text-pry-black text-xl mb-4 font-bold">
+                Create a Calender
+              </h3>
+
+              <div
+                class="h-[8.075rem] w-[16.15rem] bg-[#FF993A] rounded-[1.07669rem] text-white font-bold shadow-[0px_8.61373px_25.84118px_0_rgba(255,153,58,0.40)] relative transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_8.61373px_80px_0_rgba(255,153,58,0.40)] hover:scale-105">
+                <p class="max-w-[9ch] absolute top-4 left-[1.38rem] z-10">
+                  Start from scratch
+                </p>
+
+                <img src="/assets/overview/folder.svg" alt="" class="absolute z-10 right-8 bottom-6" />
+
+                <!-- Design Watermarks -->
+                <img src="/assets//overview/intersect-a1.svg" alt="" class="absolute z-0 top-0 left-0" />
+                <img src="/assets//overview/intersect-a2.svg" alt="" class="absolute z-0 bottom-0 right-0" />
+              </div>
+
+              <div
+                class="mt-[1.62rem] h-[8.075rem] w-[16.15rem] bg-pry-yellow rounded-[1.07669rem] p-[1.38rem] pt-4 text-white font-bold shadow-[0_8.61373px_25.84118px_0_rgba(255,209,67,0.40)] relative transition-all duration-300 ease-linear hover:cursor-pointer hover:shadow-[0_8.61373px_80px_0_rgba(255,209,67,0.40)] hover:scale-105">
+                <p class="max-w-[9ch] z-10 absolute top-4 left-[1.38rem]">
+                  Start with templates
+                </p>
+
+                <img src="/assets/overview/clock.svg" alt="" class="absolute z-10 right-8 bottom-6" />
+
+                <!-- Design Watermarks -->
+                <img src="/assets//overview/intersect-b1.svg" alt="" class="absolute top-0 left-0" />
+                <img src="/assets//overview/intersect-b2.svg" alt="" class="absolute bottom-0 right-0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT ACTIVITIES -->
+
+          <div class="px-12 py-10">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-9">
+                <div>
+                  <h2 class="font-bold text-2xl leading-8 text-gray-900 tracking-[-0.03rem]">
+                    Recents
+                  </h2>
+
+                  <div
+                    class="text-sec-gray6 text-[0.75rem] font-medium tracking-[-0.015rem] leading-5 flex justify-between items-center">
+                    <span>Sort</span>
+                    <span>Recent</span>
+                  </div>
+                </div>
+
+                <button class="font-medium text-sm text-pry-blue-light">
+                  View all
+                </button>
+              </div>
+
+              <div class="flex items-center max-w-[100px] gap-2">
+                <img src="/assets/overview/search.svg" alt="" />
+
+                <input type="search" name="search" placeholder="Search..."
+                  class="max-w-full py-2 px-3 placeholder:text-sm placeholder:text-sec-gray4" />
+              </div>
+            </div>
+
+            <ul class="grid grid-cols-2 gap-x-[1.88rem] gap-y-[1.56rem] mt-[1.62rem]">
+              <template x-for="item in recents">
+                <li
+                  class="flex items-center justify-between bg-sec-gray p-[0.94rem] rounded-2xl gap-[0.94rem] hover:shadow-inner transition-shadow duration-100 ease-in">
+                  <div :style="'background-color: ' + item.color + ';'" class="p-[0.81rem] rounded-xl">
+                    <img :src="item.image" alt="" />
+                  </div>
+
+                  <div class="flex-grow text-[0.75rem]">
+                    <h6 class="font-semibold" x-text="item.text"></h6>
+
+                    <p class="text-sec-gray4 mt-[0.37rem]">ABC Company</p>
+                  </div>
+
+                  <button>
+                    <img src="/assets/overview/vertical.svg" alt="" />
+                  </button>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Page that displays when btn.Overview is clicked/active -->
+        <section x-show="page === 'calender'"
+          class="grid md:grid-cols-[60%_40%] lg:grid-cols-[1fr_auto] grid-flow-col min-h-[53.6875rem]">
+          <!-- Grid 1 -->
+          <div class="px-12 py-[2.44rem]" x-show="currentSection === 1">
+            <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
+              <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
+                Give your calender a Name
+              </h1>
+
+              <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
+                Add a Name, and select the category of the business you are
+                creating the calendar for
               </p>
             </div>
 
-            <div
-              class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between"
-            >
-              <h6 class="text-[#8EA3B7] max-w-[7ch]">Completed Calenders</h6>
+            <!-- Form only shows on the 1st section -->
+            <form class="font-inter">
+              <div class="mt-[1.625rem] w-full">
+                <label for="name" class="text-[#696F79] font-medium">Calender Name</label>
 
-              <p
-                class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right"
-              >
-                <span class="rect"></span>
-                25
+                <input type="text" name="name" placeholder="January calendar"
+                  class="block w-full rounded-[0.375rem] border border-[#8692A6] outline-0 hover:border-[#1565d8] active:border-[#1565d8] bg-white hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] active:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] mt-[0.88rem] py-[1.44rem] px-[1.865rem] relative after-inp placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]" />
+              </div>
+
+              <div class="mt-[1.625rem]">
+                <label for="business" class="text-[#696F79] font-medium">Business Category</label>
+                <select name="business"
+                  class="block w-full rounded-[0.375rem] border border-[#8692A6] outline-0 hover:border-[#1565d8] active:border-[#1565d8] bg-white hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] active:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] py-[1.44rem] mt-[0.88rem] px-[1.865rem] placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
+                  aria-placeholder="please select">
+                  <option value="">Option 1</option>
+                  <option value="">Option 2</option>
+                  <option value="">Option 3</option>
+                  <option value="">Option 4</option>
+                </select>
+              </div>
+
+              <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
+                <button @click.prevent="page = 'overview'"
+                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark">
+                  Back
+                </button>
+
+                <button @click.prevent="currentSection = 2"
+                  class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white" type="submit">
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="px-12 py-[2.44rem]" x-show="currentSection === 2">
+            <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
+              <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
+                Select the platforms
+              </h1>
+
+              <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
+                Select the platforms you want to create contents for
               </p>
             </div>
 
-            <div
-              class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between"
-            >
-              <h6 class="text-[#8EA3B7] max-w-[7ch]">Archived</h6>
+            <ul class="grid grid-cols-3 gap-y-[0.37rem] gap-x-2 mt-5 max-w-[26.68rem]">
+              <template x-for="item in socials">
+                <li>
+                  <button
+                    class="px-[0.865rem] py-[0.69rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:border-[#1565d8] hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] transition-all duration-100 ease-in">
+                    <img :src="item.image" alt="" />
 
-              <p
-                class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right"
-              >
-                <span class="rect"></span>
-                03
+                    <p x-text="item.text"></p>
+                  </button>
+                </li>
+              </template>
+            </ul>
+
+            <!-- Nav Buttons -->
+            <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
+              <button @click.prevent="currentSection = 1"
+                class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark">
+                Back
+              </button>
+
+              <button @click.prevent="currentSection = 3"
+                class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white">
+                Next
+              </button>
+            </div>
+          </div>
+
+          <div class="px-12 py-[2.44rem]" x-show="currentSection === 3">
+            <div class="font-inter border-b border-[#F5F5F5] pb-8 w-fit">
+              <h1 class="font-bold text-[1.875rem] mb-[0.62rem]">
+                Content Types/Pillars
+              </h1>
+
+              <p class="leading-7 text-[#8692A6] max-w-[25.6875rem]">
+                Select the platforms you want to create contents for (as many
+                as you want)
               </p>
             </div>
 
-            <div
-              class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between"
-            >
-              <h6 class="text-[#8EA3B7] max-w-[7ch]">Drafts</h6>
+            <ul class="flex flex-wrap gap-y-[0.69rem] gap-x-[0.63rem] mt-5">
+              <template x-for="item in contents">
+                <li>
+                  <button
+                    class="px-[1.15rem] py-[0.75rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:border-[#1565d8] hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] transition-all duration-100 ease-in"
+                    x-text="item"></button>
+                </li>
+              </template>
+            </ul>
 
-              <p
-                class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right"
-              >
-                <span class="rect"></span>
-                05
-              </p>
+            <!-- Nav Buttons -->
+            <div class="flex gap-[0.63rem] font-inter mt-[3.56rem]">
+              <button @click.prevent="currentSection = 2"
+                class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg text-pry-blue-dark border border-pry-blue-dark">
+                Back
+              </button>
+
+              <button @click.prevent="currentSection = 4"
+                class="w-[11.25rem] py-[1.19rem] rounded-[0.63rem] text-lg bg-pry-blue-dark text-white">
+                Next
+              </button>
             </div>
+          </div>
+
+          <div x-show="currentSection === 4" x-data="calendarApp()" x-init="initCalendar()"
+            class="pl-12 pr-[4.62rem] pt-[2.75rem] w-full">
+            <div class="bg-[#F4F7FE] rounded-t-[1.31rem] px-[2.31rem] pt-[2.1rem] w-full h-full font-inter">
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-[3.62rem]">
+                  <div class="flex items-center gap-[0.2rem]">
+                    <h3
+                      class="text-[1.57rem] font-dmSans text-sec-darkGrey font-bold leading-[2rem] tracking-[-0.03144rem]">
+                      Ayuss</h3>
+                    <p class="text-[#8696A6] font-medium">/January calender</p>
+                  </div>
+
+                  <div class="text-[1.179rem] leading-[1.83rem] flex items-center gap-[0.59rem]"><button
+                      class="underline underline-offset-2">Calender</button>
+                    <p class="text-[#8692A6]">Repository</p>
+                  </div>
+                </div>
+
+                <button class="flex items-center gap">
+                  <p class="font-dmSans text-sec-gray6 tracking-[-0.01838rem] leading-[1.57rem]">Monthly</p> <span><img
+                      src="/assets/calender/arrow-down.svg" alt=""></span></butto>
+              </div>
+              <!-- Calendar Container -->
+              <div id="calendar" class="mt-[3.11rem]">
+                <div class="grid grid-cols-7 items-center mb-[0.62rem] text-[0.55156rem] text-[#8692A6]">
+                  <p>Sunday</p>
+                  <p>Monday</p>
+                  <p>Tuesday</p>
+                  <p>Wednesday</p>
+                  <p>Thursday</p>
+                  <p>Friday</p>
+                  <p>saturday</p>
+                </div>
+
+                <ul class="grid grid-cols-7 border border-[#E5E5E5] bg-white">
+                  <template x-for="(item, index) in calender" :key="index">
+                    <li
+                      class="h-[7.2rem] border border-[#E5E5E5] px-[0.99rem] py-[0.685rem] flex flex-col justify-between">
+                      <div class="flex justify-between items-center">
+                        <span class="text-[#cccccc]">
+                          &plus;
+                        </span>
+
+                        <p
+                        :class="{
+                          'opacity-20': index < 2 || index >= calender.length - 2,
+                          'opacity-100': index >= 2 && index < calender.length - 2
+                      }"
+                         x-text="item.num">
+                        </p>
+
+                      </div>
+
+                      <div class="text-[0.457rem]">
+                        <div class="flex justify-between items-end">
+                          <span x-show="item.done"
+                            class="text-[0.33475rem] bg-[#FE4752] p-[0.23rem] text-white rounded-[0.125rem] block">Done</span>
+
+                          <p :style="'background-color: ' + item.color + ';'"
+                            x-show="item.tips"
+                            class="py-[0.43rem] px-[0.73rem] border text-center border-[#BCBCBC] rounded-[0.25rem]">Tips and Tricks</p>
+                        </div>
+
+                        <p x-show="item.prod"
+                          class="py-[0.43rem] px-[0.3rem] text-center text-[#8692A6] border border-[#BCBCBC] w-full mt-[0.22rem] rounded-[0.25rem]">
+                          How to make a product t..
+                        </p>
+                      </div>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grid 2 -->
+          <div x-show="currentSection === 1" class="bg-pry-blue-dark lg:w-[31rem]"></div>
+          <div x-show="currentSection === 2" class="bg-pry-yellow lg:w-[31rem]"></div>
+          <div x-show="currentSection === 3" class="bg-pry-blue-alt lg:w-[31rem]"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Side page that displays when btn.Overview is clicked/active -->
+    <div x-show="page === 'overview'" class="px-[2.5rem] w-[29.38rem] border-l-2 border-l-pry-border-100">
+      <div class="bg-[#354B9E14] p-8 font-inter rounded-b-[1.533rem] mb-4">
+        <img src="/assets/overview/design.png" alt="" />
+
+        <h2 class="font-semibold text-[1.533rem] leading-[134%] max-w-[13ch] text-pry-blue-dark mt-[.875rem]">
+          We are a creative digital agency
+        </h2>
+
+        <p class="font-light text-gray-500 leading-[140%] mt-[0.69rem] mb-[1.76rem] max-w-[17rem]">
+          Hire us to create and develop your social media calendar and
+          contents.
+        </p>
+
+        <button class="rounded-[0.7665rem] bg-pry-blue-dark text-white w-[9rem] py-3">
+          Hire us
+        </button>
+      </div>
+
+      <div>
+        <h2 class="mb-[0.63rem] font-manrope text-2xl leading-normal text-pry-black font-bold">
+          Statistics
+        </h2>
+
+        <div class="grid grid-cols-2 gap-[1.88rem]">
+          <div
+            class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between">
+            <h6 class="text-[#8EA3B7] max-w-[7ch]">Active Calenders</h6>
+
+            <p class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right">
+              <span class="rect"></span>
+              02
+            </p>
+          </div>
+
+          <div
+            class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between">
+            <h6 class="text-[#8EA3B7] max-w-[7ch]">Completed Calenders</h6>
+
+            <p class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right">
+              <span class="rect"></span>
+              25
+            </p>
+          </div>
+
+          <div
+            class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between">
+            <h6 class="text-[#8EA3B7] max-w-[7ch]">Archived</h6>
+
+            <p class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right">
+              <span class="rect"></span>
+              03
+            </p>
+          </div>
+
+          <div
+            class="w-[11.25rem] h-[11.25rem] rounded-[1.25rem] py-8 px-6 bg-pry-blue-alt bg-opacity-10 font-inter flex flex-col justify-between">
+            <h6 class="text-[#8EA3B7] max-w-[7ch]">Drafts</h6>
+
+            <p class="relative text-pry-blue-light mt-4 text-[2.5rem] font-bold w-full text-right">
+              <span class="rect"></span>
+              05
+            </p>
           </div>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
+
 </html>
