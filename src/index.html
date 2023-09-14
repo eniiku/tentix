@@ -175,10 +175,12 @@
           </div>
 
           <div class="flex items-center gap-[1.125rem]">
-            <img src="/assets/header/notification.svg" alt="" />
+            <button>
+              <img src="/assets/header/notification.svg" alt="" />
+            </button>
 
-            <div
-              class="flex items-center bg-[#354B9E14] rounded-[0.625rem] py-[0.75rem] px-4 gap-[0.75rem]"
+            <button
+              class="flex items-center bg-[#354B9E14] rounded-[0.625rem] py-[0.75rem] px-4 gap-[0.75rem] hover:shadow-inner transition-all duration-100 ease-in"
             >
               <img
                 src="/assets/header/avatar.png"
@@ -193,7 +195,7 @@
               </div>
 
               <img src="/assets/header/chevron-down.svg" alt="" />
-            </div>
+            </button>
           </div>
         </header>
 
@@ -299,10 +301,10 @@
 
                 <div class="flex items-center max-w-[100px] gap-2">
                   <img src="/assets/overview/search.svg" alt="" />
+
                   <input
                     type="search"
-                    name=""
-                    id=""
+                    name="search"
                     placeholder="Search..."
                     class="max-w-full py-2 px-3 placeholder:text-sm placeholder:text-sec-gray4"
                   />
@@ -314,7 +316,7 @@
               >
                 <template x-for="item in recents">
                   <li
-                    class="flex items-center justify-between bg-sec-gray p-[0.94rem] rounded-2xl gap-[0.94rem]"
+                    class="flex items-center justify-between bg-sec-gray p-[0.94rem] rounded-2xl gap-[0.94rem] hover:shadow-inner transition-shadow duration-100 ease-in"
                   >
                     <div
                       :style="'background-color: ' + item.color + ';'"
@@ -367,7 +369,7 @@
                     type="text"
                     name="name"
                     placeholder="January calendar"
-                    class="block w-full rounded-[0.375rem] border border-[#8692A6] focus:border-[#1565d8] bg-white focus:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] mt-[0.88rem] py-[1.44rem] px-[1.865rem] relative after-inp placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
+                    class="block w-full rounded-[0.375rem] border border-[#8692A6] outline-0 hover:border-[#1565d8] active:border-[#1565d8] bg-white hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] active:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] mt-[0.88rem] py-[1.44rem] px-[1.865rem] relative after-inp placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
                   />
                 </div>
 
@@ -377,7 +379,7 @@
                   >
                   <select
                     name="business"
-                    class="block w-full rounded-[0.375rem] border border-[#8692A6] focus:border-[#1565d8] bg-white focus:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] py-[1.44rem] mt-[0.88rem] px-[1.865rem] placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
+                    class="block w-full rounded-[0.375rem] border border-[#8692A6] outline-0 hover:border-[#1565d8] active:border-[#1565d8] bg-white hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] active:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] max-w-[26.625rem] py-[1.44rem] mt-[0.88rem] px-[1.865rem] placeholder:text-[#8692A6] font-medium placeholder:text-[0.75rem]"
                     aria-placeholder="please select"
                   >
                     <option value="">Option 1</option>
@@ -423,7 +425,7 @@
                 <template x-for="item in socials">
                   <li>
                     <button
-                      class="px-[0.865rem] py-[0.69rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6]"
+                      class="px-[0.865rem] py-[0.69rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:border-[#1565d8] hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] transition-all duration-100 ease-in"
                     >
                       <img :src="item.image" alt="" />
 
@@ -467,7 +469,7 @@
                 <template x-for="item in contents">
                   <li>
                     <button
-                      class="px-[1.15rem] py-[0.75rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:shadow-[inset_0_0_0_2em_rgb(188 188 188)]"
+                      class="px-[1.15rem] py-[0.75rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:border-[#1565d8] hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] transition-all duration-100 ease-in"
                       x-text="item"
                     ></button>
                   </li>
