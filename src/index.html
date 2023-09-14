@@ -358,7 +358,7 @@ calender: [
             <ul class="grid grid-cols-3 gap-y-[0.37rem] gap-x-2 mt-5 max-w-[26.68rem]">
               <template x-for="item in socials">
                 <li>
-                  <button
+                  <button @click.prevent="currentSection = 3"
                     class="px-[0.865rem] py-[0.69rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:border-[#1565d8] hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] transition-all duration-100 ease-in">
                     <img :src="item.image" alt="" />
 
@@ -397,7 +397,7 @@ calender: [
             <ul class="flex flex-wrap gap-y-[0.69rem] gap-x-[0.63rem] mt-5">
               <template x-for="item in contents">
                 <li>
-                  <button
+                  <button @click.prevent="currentSection = 4"
                     class="px-[1.15rem] py-[0.75rem] w-full rounded-[0.4375rem] flex items-center gap-[0.56rem] border border-[#bcbcbc] font-inter text-[0.7875rem] text-[#8692a6] hover:border-[#1565d8] hover:shadow-[0_4px_10px_3px_rgba(0,0,0,0.11)] transition-all duration-100 ease-in"
                     x-text="item"></button>
                 </li>
@@ -418,7 +418,7 @@ calender: [
             </div>
           </div>
 
-          <div x-show="currentSection === 4" x-data="calendarApp()" x-init="initCalendar()"
+          <div x-show="currentSection === 4"
             class="pl-12 pr-[4.62rem] pt-[2.75rem] w-full">
             <div class="bg-[#F4F7FE] rounded-t-[1.31rem] px-[2.31rem] pt-[2.1rem] w-full h-full font-inter">
 
@@ -443,7 +443,7 @@ calender: [
               </div>
               <!-- Calendar Container -->
               <div id="calendar" class="mt-[3.11rem]">
-                <div class="grid grid-cols-7 items-center mb-[0.62rem] text-[0.55156rem] text-[#8692A6]">
+                <div class="grid grid-cols-7 text-center mb-[0.62rem] text-[0.55156rem] text-[#8692A6]">
                   <p>Sunday</p>
                   <p>Monday</p>
                   <p>Tuesday</p>
@@ -462,12 +462,10 @@ calender: [
                           &plus;
                         </span>
 
-                        <p
-                        :class="{
+                        <p :class="{
                           'opacity-20': index < 2 || index >= calender.length - 2,
                           'opacity-100': index >= 2 && index < calender.length - 2
-                      }"
-                         x-text="item.num">
+                      }" x-text="item.num">
                         </p>
 
                       </div>
@@ -477,9 +475,9 @@ calender: [
                           <span x-show="item.done"
                             class="text-[0.33475rem] bg-[#FE4752] p-[0.23rem] text-white rounded-[0.125rem] block">Done</span>
 
-                          <p :style="'background-color: ' + item.color + ';'"
-                            x-show="item.tips"
-                            class="py-[0.43rem] px-[0.73rem] border text-center border-[#BCBCBC] rounded-[0.25rem]">Tips and Tricks</p>
+                          <p :style="'background-color: ' + item.color + ';'" x-show="item.tips"
+                            class="py-[0.43rem] px-[0.73rem] border text-center border-[#BCBCBC] rounded-[0.25rem]">Tips
+                            and Tricks</p>
                         </div>
 
                         <p x-show="item.prod"
